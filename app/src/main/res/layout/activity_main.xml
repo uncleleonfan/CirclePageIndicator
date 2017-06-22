@@ -4,12 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="180dp"
     tools:context="com.itheima.circlepageindicator.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="180dp"/>
+
+    <com.itheima.circlepageindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

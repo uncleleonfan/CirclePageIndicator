@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
+    private CirclePageIndicator mCirclePageIndicator;
 
     private int[] mDataList = {R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d};
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mViewPager = (ViewPager) findViewById(R.id.vp);
         mViewPager.setAdapter(mPagerAdapter);
+        mCirclePageIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        mCirclePageIndicator.setViewPager(mViewPager);
     }
 
     private PagerAdapter mPagerAdapter = new PagerAdapter() {
