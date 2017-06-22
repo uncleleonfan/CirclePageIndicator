@@ -78,7 +78,8 @@ public class CirclePageIndicator extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int dotDistance = mDotGap + 2 *  mDotRadius;//点与点之间圆心的距离
+        //点与点之间圆心的距离
+        int dotDistance = mDotGap + 2 *  mDotRadius;
         //循环遍历不动点
         for (int i = 0; i < mViewPager.getAdapter().getCount(); i++) {
             float cx = mDotRadius + i * dotDistance;
@@ -88,7 +89,6 @@ public class CirclePageIndicator extends View {
         }
         //绘制动点
         mDotPaint.setColor(Color.RED);
-
         float mMoveCx = mDotRadius + mPosition * dotDistance + dotDistance * mPositionOffset;
         float mMoveCy = mDotRadius;
         canvas.drawCircle(mMoveCx, mMoveCy, mDotRadius, mDotPaint);
