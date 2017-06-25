@@ -109,7 +109,7 @@
         for (int i = 0; i < mViewPager.getAdapter().getCount(); i++) {
             float cx = mDotRadius + i * dotDistance;
             float cy = mDotRadius;
-            mDotPaint.setColor(Color.WHITE);
+            mDotPaint.setColor(mNormalColor);
             canvas.drawCircle(cx, cy, mDotRadius, mDotPaint);
         }
     }
@@ -141,7 +141,7 @@
     protected void onDraw(Canvas canvas) {
 		........
         //绘制动点
-        mDotPaint.setColor(Color.RED);
+        mDotPaint.setColor(mSelectedColor);
         float mMoveCx = mDotRadius + mPosition * dotDistance + dotDistance * mPositionOffset;
         float mMoveCy = mDotRadius;
         canvas.drawCircle(mMoveCx, mMoveCy, mDotRadius, mDotPaint);

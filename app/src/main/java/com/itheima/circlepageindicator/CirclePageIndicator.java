@@ -28,8 +28,9 @@ public class CirclePageIndicator extends View {
     private int mPosition;
     private float mPositionOffset;
 
+    //不动点的颜色
     private int mNormalColor;
-
+    //动点颜色
     private int mSelectedColor;
 
     public CirclePageIndicator(Context context) {
@@ -49,10 +50,15 @@ public class CirclePageIndicator extends View {
         mSelectedColor = Color.RED;
     }
 
+    /**
+     * 测量CirclePageIndicator的高宽，不去使用在布局中的配置的宽高
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int count = mViewPager.getAdapter().getCount();
+        //宽度 = 点的直径 * 点的个数 + 点与点间隔 * (点的个数 - 1)
         int width =  2 * mDotRadius * count + (count - 1) * mDotGap;
+        //高度 = 点的直径
         int height = 2 * mDotRadius;
         setMeasuredDimension(width, height);
     }
@@ -95,7 +101,8 @@ public class CirclePageIndicator extends View {
         }
         //绘制动点
         mDotPaint.setColor(mSelectedColor);
-        float mMoveCx = mDotRadius + mPosition * dotDistance + dotDistance * mPositionOffset;
+        //计算动点x轴的位置
+        float mMoveCx = mDotRadius + dotDistance * mPositionOffset + mPosition * dotDistance ;
         float mMoveCy = mDotRadius;
         canvas.drawCircle(mMoveCx, mMoveCy, mDotRadius, mDotPaint);
     }
