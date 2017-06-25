@@ -1,6 +1,8 @@
 # 简介 #
-![](img/circle_page_indicator.gif)
 一个简单的ViewPager圆点指示器自定义控件示例
+
+![](img/circle_page_indicator.gif)
+
 
 # 1. 初始化ViewPager #
 在MainActivity中调用initView方法初始化ViewPager。
