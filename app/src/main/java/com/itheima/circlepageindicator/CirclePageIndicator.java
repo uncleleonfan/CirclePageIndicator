@@ -17,9 +17,9 @@ import android.view.View;
 public class CirclePageIndicator extends View {
 
     //点的半径
-    private int mDotRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+    private int mDotRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
     //点与点的间隔
-    private int mDotGap = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+    private int mDotGap = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
 
 
     private ViewPager mViewPager;
@@ -27,6 +27,10 @@ public class CirclePageIndicator extends View {
 
     private int mPosition;
     private float mPositionOffset;
+
+    private int mNormalColor;
+
+    private int mSelectedColor;
 
     public CirclePageIndicator(Context context) {
         this(context, null);
@@ -40,7 +44,9 @@ public class CirclePageIndicator extends View {
     private void init() {
         mDotPaint = new Paint();
         mDotPaint.setAntiAlias(true);
-        mDotPaint.setColor(Color.WHITE);
+
+        mNormalColor = Color.BLACK;
+        mSelectedColor = Color.RED;
     }
 
     @Override
@@ -84,11 +90,11 @@ public class CirclePageIndicator extends View {
         for (int i = 0; i < mViewPager.getAdapter().getCount(); i++) {
             float cx = mDotRadius + i * dotDistance;
             float cy = mDotRadius;
-            mDotPaint.setColor(Color.WHITE);
+            mDotPaint.setColor(mNormalColor);
             canvas.drawCircle(cx, cy, mDotRadius, mDotPaint);
         }
         //绘制动点
-        mDotPaint.setColor(Color.RED);
+        mDotPaint.setColor(mSelectedColor);
         float mMoveCx = mDotRadius + mPosition * dotDistance + dotDistance * mPositionOffset;
         float mMoveCy = mDotRadius;
         canvas.drawCircle(mMoveCx, mMoveCy, mDotRadius, mDotPaint);

@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private CirclePageIndicator mCirclePageIndicator;
 
-    private int[] mDataList = {R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d};
+    private int[] mDataList = {R.mipmap.lao, R.mipmap.si, R.mipmap.ji, R.mipmap.dai, R.mipmap.dai, R.mipmap.wo};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
